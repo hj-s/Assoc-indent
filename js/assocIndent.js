@@ -7,8 +7,8 @@ const line = `\n`;
 	String.prototype.insertStr = function(start, substr){ return this.slice(0, start) + substr + this.slice(start) }
 	: console.log(`insertStr is used`);
 
-(!String.prototype.parseAssocSrting) ?
-	String.prototype.parseAssocSrting = function(){
+(!String.prototype.indentAssocSrting) ?
+	String.prototype.indentAssocSrting = function(){
 		var str = this
 		var tag = ``;
 		var indent = true;
@@ -44,16 +44,16 @@ const line = `\n`;
 
 		return str
 	}
-	: console.log(`parseAssocSrting is used`);
+	: console.log(`indentAssocSrting is used`);
 
-(!String.prototype.parseAssoc) ? 
-	String.prototype.parseAssoc = function(action){
+(!String.prototype.indentAssoc) ? 
+	String.prototype.indentAssoc = function(action){
 		console.log(`source: ` + line + this + line)
 		var str = ``
 		var time = isDefined(performance) ? performance.now() : 0
 		switch (action) {
-			case `parse`: 
-				str = this.trim().replace(/\n|\t/g,``).parseAssocSrting()
+			case `assoc`: 
+				str = this.trim().replace(/\n|\t/g,``).indentAssocSrting()
 				break
 			default:
 				str = `Invalid action`
@@ -65,4 +65,4 @@ const line = `\n`;
 		console.log(`time: ` + time)
 		return str
 	} 
-	: console.log(`parseAssoc is used`);
+	: console.log(`indentAssoc is used`);

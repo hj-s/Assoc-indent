@@ -3,8 +3,8 @@
 <head>
 	<title>Assoc parser</title>
 
-	<script src="../js/assocParser.js"></script>
-	<link rel="stylesheet" href="../css/assocParser.css">
+	<script src="../js/assocIndent.js"></script>
+	<link rel="stylesheet" href="../css/assocIndent.css">
 
 	<script>
 		const inputPlaceHolder = `type Assoc here\n\tparse button will make indent on for much simple vew `;
@@ -52,8 +52,8 @@
 			setTimeout(hideCopyInfo, 1000);
 		}
 
-		function parse(action){
-			document.getElementById("outpuAssoc").value = document.getElementById("inputAssoc").value.parseAssoc(action);
+		function indent(action){
+			document.getElementById("outpuAssoc").value = document.getElementById("inputAssoc").value.indentAssoc(action);
 			copyToClipboard(document.getElementById("outpuAssoc").value);
 			document.getElementById("outpuAssoc").dispatchEvent( new Event('change'));
 		};
@@ -77,7 +77,7 @@
 </head>
 <body>
 	<br>
-	<input type="button" class="button button-small" name="parse" value="parse" onclick="parse('parse');">
+	<input type="button" class="button button-small" name="parse" value="parse" onclick="indent('assoc');">
 	<input type="button" class="button button-small" name="clear" value="clear" onclick="clearTextArea();">
 	<input type="button" class="button button-small" name="copyOutput" value="copy output" onclick="copyOutput();">
 
